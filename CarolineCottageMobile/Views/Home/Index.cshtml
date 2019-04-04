@@ -1,87 +1,94 @@
 ﻿@{
     ViewBag.Title = "Caroline Cottage";
 }
-@model Dictionary<Carousels, CarouselDisplay>
+@model Dictionary<CarouselType, CarouselDisplay>
 @using CarolineCottageMobile.Application.CarolineCottageDisplay
 
 <!--Navbar-->
-<nav class="navbar bg-white sticky-top navbar-expand-lg navbar-light text-primary primary-color">
+<div class="container">
+    <nav class="navbar bg-white sticky-top navbar-expand-lg navbar-light text-primary primary-color">
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">Caroline Cottage</a>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Caroline Cottage</a>
 
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#carolineCottageNav"
-            aria-controls="carolineCottageNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#carolineCottageNav"
+                aria-controls="carolineCottageNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="carolineCottageNav">
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="carolineCottageNav">
 
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#CottageSectionLink">
-                    Our cottage
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Availability</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Mousehole</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Places to visit</a>
-            </li>
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#CottageSectionLink">
+                        Our cottage
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mousehole</a>
+                </li>
 
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">More</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Guest comments</a>
-                    <a class="dropdown-item" href="#">Downloads</a>
-                    <a class="dropdown-item" href="#">ManOnABeach video</a>
-                    <a class="dropdown-item" href="#">Privacy Statement</a>
-                </div>
-            </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">More</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Guest comments</a>
+                        <a class="dropdown-item" href="#">Downloads</a>
+                        <a class="dropdown-item" href="#">ManOnABeach video</a>
+                        <a class="dropdown-item" href="#">Privacy Statement</a>
+                    </div>
+                </li>
 
-        </ul>
-        <!-- Links -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-facebook"></i>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">
-                    <i class="fa fa-user"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
+            </ul>
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-primary" href="#">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
 
-    </div>
-    <!-- Collapsible content -->
+        </div>
+        <!-- Collapsible content -->
 
-</nav>
-<!--/.Navbar-->
+    </nav>
+    <!--/.Navbar-->
 
-<div class="jumbotron jumbotron-fluid bg-transparent text-dark">
-    <div class="container">
+
+    <div class="jumbotron jumbotron-fluid bg-transparent text-dark">
         <img class="img-fluid" src="~/Content/Images/header_2.jpg" />
     </div>
+
+
+    @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
+
+    @{Html.RenderPartial("CottageSection");}
+
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Pugwash Interactive</p>
+    </footer>
+
 </div>
 
-@{Html.RenderPartial("HeadingSection", Model[Carousels.Heading]);}
-
-@{Html.RenderPartial("CottageSection");}

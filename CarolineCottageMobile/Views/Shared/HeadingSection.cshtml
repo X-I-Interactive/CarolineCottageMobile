@@ -1,15 +1,17 @@
 ﻿@model CarouselDisplay
 @using CarolineCottageMobile.Application.CarolineCottageDisplay
 
-<div class="row">
-    <div class="col-sm">
-        <p class="lead">
-            Lovely seaside holiday home in Mousehole, near Penzance, Cornwall. Spacious and
-            light, with balcony overlooking harbour and Mounts Bay. Sleeps up to 6, with annexe
-            also available for extra accommodation sleeping 2
-        </p>
+<section>
+    <div class="row">
+        <div class="col-sm">
+            <p class="lead">
+                Lovely seaside holiday home in Mousehole, near Penzance, Cornwall. Spacious and
+                light, with balcony overlooking harbour and Mounts Bay. Sleeps up to 6, with annexe
+                also available for extra accommodation sleeping 2
+            </p>
+        </div>
+        <div class="col-sm">
+            @{Html.RenderPartial("CarouselDisplay", Model);}
+        </div>
     </div>
-    <div class="col-sm">
-        @{Html.RenderPartial("CarouselDisplay", Model);}
-    </div>
-</div>
+</section>

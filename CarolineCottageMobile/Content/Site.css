@@ -24,7 +24,7 @@ textarea {
 }
 
 .fa-facebook {
-    color: rgb(59, 91, 152);
+    color: rgb(59, 91, 152) !important;
 }
 
 a.anchor {
@@ -32,4 +32,14 @@ a.anchor {
     position: relative;
     top: -75px;
     visibility: hidden;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+section {
+    margin-bottom: 2em;
+    /*background:linear-gradient(#efefef, #fff)*/
 }
