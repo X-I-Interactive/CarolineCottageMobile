@@ -1,9 +1,11 @@
 ﻿@{
     ViewBag.Title = "Caroline Cottage";
 }
+@model Dictionary<Carousels, CarouselDisplay>
+@using CarolineCottageMobile.Application.CarolineCottageDisplay
 
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light text-primary primary-color">
+<nav class="navbar bg-white sticky-top navbar-expand-lg navbar-light text-primary primary-color">
 
     <!-- Navbar brand -->
     <a class="navbar-brand" href="#">Caroline Cottage</a>
@@ -20,7 +22,7 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#CottageSectionLink">
                     Our cottage
                     <span class="sr-only">(current)</span>
                 </a>
@@ -49,10 +51,10 @@
 
         </ul>
         <!-- Links -->
-        <ul class="navbar-nav ml-auto nav-flex-icons">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link waves-effect waves-light">
-                    <i class="fa fa-facebook-f"></i>
+                <a class="nav-link" href="#">
+                    <i class="fa fa-facebook"></i>
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -79,3 +81,7 @@
         <img class="img-fluid" src="~/Content/Images/header_2.jpg" />
     </div>
 </div>
+
+@{Html.RenderPartial("HeadingSection", Model[Carousels.Heading]);}
+
+@{Html.RenderPartial("CottageSection");}

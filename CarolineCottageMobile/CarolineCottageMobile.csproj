@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CarolineCottageService.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -141,6 +142,14 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CarouselMain\01harbour_cyac.jpg" />
+    <Content Include="Content\CarouselMain\02IMG_6367.JPG" />
+    <Content Include="Content\CarouselMain\03IMG_6400.JPG" />
+    <Content Include="Content\CarouselMain\04IMG_1723.jpg" />
+    <Content Include="Content\CarouselMain\05IMG_6260.JPG" />
+    <Content Include="Content\CarouselMain\06IMG_6415.JPG" />
+    <Content Include="Content\CarouselMain\07img_034.jpg" />
+    <Content Include="Content\CarouselMain\08IMG_1719.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\header_1.jpg" />
@@ -216,6 +225,9 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\HeadingSection.cshtml" />
+    <Content Include="Views\Shared\CottageSection.cshtml" />
+    <Content Include="Views\Shared\CarouselDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

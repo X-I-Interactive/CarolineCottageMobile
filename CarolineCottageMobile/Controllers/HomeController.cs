@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarolineCottageMobile.Application.CarolineCottageDisplay;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,21 +11,14 @@ namespace CarolineCottageMobile.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            Dictionary<CarouselType, CarouselDisplay> carousels = new Dictionary<CarouselType, CarouselDisplay>();
+            string path = Server.MapPath("~/Content/CarouselMain");
+            CarouselDisplay carouselDisplay = new CarouselDisplay();
+            carouselDisplay.ImagePath = "~/Content/ImagesCarousel";
+            carouselDisplay.GetImageDisplayList(path);
+            carousels.Add(CarouselType.Heading, carouselDisplay);
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+            return View(carousels);
+        }        
     }
 }

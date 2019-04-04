@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.fa-facebook {
+    color: rgb(59, 91, 152);
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -75px;
+    visibility: hidden;
+}
