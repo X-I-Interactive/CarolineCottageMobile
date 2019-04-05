@@ -1,11 +1,24 @@
 ﻿$(document).ready(function () {
-    //$('.carousel').carousel({
-    //    interval: 5000,
-    //    pause: false
+
+    $("#viewPrivacy").click(function (e) {
+
+        var jqxhr1 = $.ajax({
+            type: 'POST', url: "/Home/PrivacyStatement"
+        });
+        $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
+            $("#privacyBody").html(responseStatement);
+            $('#privacyModal').modal();
+        });
+    });
+
+    //$('.navbar-nav>li>a').on('click', function () {
+    //    $('.navbar-collapse').collapse('hide');
     //});
 
-    $('.navbar-nav>li>a').on('click', function () {
+    $('a[href^="#"]').on('click', function () {        
         $('.navbar-collapse').collapse('hide');
     });
+    
+
 });
 

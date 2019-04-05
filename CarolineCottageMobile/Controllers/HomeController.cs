@@ -20,6 +20,12 @@ namespace CarolineCottageMobile.Controllers
             return View(carousels);
         }
 
+        [HttpPost]
+        public ActionResult PrivacyStatement()
+        {
+            return PartialView("PrivacyStatement");
+        }
+
         private CarouselDisplay GetCarouselSettings(string location, CarouselType carouselType)
         {
             string path = Server.MapPath(location);

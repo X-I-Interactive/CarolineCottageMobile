@@ -208,6 +208,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\local\CC_booking_form.pdf" />
+    <Content Include="Content\local\CC_Leaflet.pdf" />
+    <Content Include="Content\local\CC_map3.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -254,6 +257,10 @@
     <Content Include="Views\Home\CarouselDisplay.cshtml" />
     <Content Include="Views\Home\MouseholeSection.cshtml" />
     <Content Include="Views\Home\PlacesToVisitSection.cshtml" />
+    <Content Include="Views\Home\GuestCommentsSection.cshtml" />
+    <Content Include="Views\Home\ManOnABeachSection.cshtml" />
+    <Content Include="Views\Home\DownloadsSection.cshtml" />
+    <Content Include="Views\Shared\PrivacyStatement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,10 +38,10 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">More</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Guest comments</a>
-                        <a class="dropdown-item" href="#">Downloads</a>
-                        <a class="dropdown-item" href="#">ManOnABeach video</a>
-                        <a class="dropdown-item" href="#">Privacy Statement</a>
+                        <a class="dropdown-item" href="#GuestCommentsSectionLink">Guest comments</a>
+                        <a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>
+                        <a class="dropdown-item" href="#DownloadsSectionLink">Downloads</a>
+                        <a class="dropdown-item" href="#" id="viewPrivacy">Privacy Statement</a>
                     </div>
                 </li>
 
@@ -52,20 +52,14 @@
                     <a class="nav-link btn btn-outline-primary" href="#">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook">
                         <i class="fa fa-facebook"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        <i class="fa fa-user"></i>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" title="Contact us">
+                        <i class="fa fa-envelope-o"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
                 </li>
             </ul>
 
@@ -85,11 +79,33 @@
     @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
     @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
     @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
+    @{Html.RenderPartial("GuestCommentsSection");}
+    @{Html.RenderPartial("ManOnABeachSection");}
+    @{Html.RenderPartial("DownloadsSection");}
 
     <hr />
     <footer>
         <p>&copy; @DateTime.Now.Year - Pugwash Interactive</p>
     </footer>
 
+    <!-- Modal privacy -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyModalTitle">Caroline Cottage privacy statement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="privacyBody">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
