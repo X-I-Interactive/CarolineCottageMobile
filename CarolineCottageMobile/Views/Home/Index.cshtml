@@ -28,9 +28,9 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mousehole</a>
+                    <a class="nav-link" href="#MouseholeSectionLink">Mousehole</a>
                 </li>
 
                 <!-- Dropdown -->
@@ -82,8 +82,9 @@
 
 
     @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
-
-    @{Html.RenderPartial("CottageSection");}
+    @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
+    @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
+    @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
 
     <hr />
     <footer>

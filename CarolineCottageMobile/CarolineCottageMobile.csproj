@@ -142,6 +142,12 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CarouselCottage\00IMG_6415.JPG" />
+    <Content Include="Content\CarouselCottage\01IMG_1788.jpg" />
+    <Content Include="Content\CarouselCottage\02IMG_1768.jpg" />
+    <Content Include="Content\CarouselCottage\03IMG_1913.JPG" />
+    <Content Include="Content\CarouselCottage\04IMG_1778.jpg" />
+    <Content Include="Content\CarouselCottage\05IMG_1886.jpg" />
     <Content Include="Content\CarouselMain\01harbour_cyac.jpg" />
     <Content Include="Content\CarouselMain\02IMG_6367.JPG" />
     <Content Include="Content\CarouselMain\03IMG_6400.JPG" />
@@ -150,6 +156,23 @@
     <Content Include="Content\CarouselMain\06IMG_6415.JPG" />
     <Content Include="Content\CarouselMain\07img_034.jpg" />
     <Content Include="Content\CarouselMain\08IMG_1719.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_2forest.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_2forestout.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_above.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_hjump.jpg" />
+    <Content Include="Content\CarouselMousehole\01mousehole_hwalls.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_keigwin.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_lights.jpg" />
+    <Content Include="Content\CarouselMousehole\mousehole_pool.jpg" />
+    <Content Include="Content\CarouselMousehole\00mousehole_signature.jpg" />
+    <Content Include="Content\CarouselMousehole\03mousehole_wave.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_curno.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_newlyn01.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_sennon01.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_smm01.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_smm02.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_stives01.jpg" />
+    <Content Include="Content\CarouselPlacesToVisit\penwith_stives02.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Images\header_1.jpg" />
@@ -195,6 +218,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\local\cc-Local.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -225,9 +249,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\HeadingSection.cshtml" />
-    <Content Include="Views\Shared\CottageSection.cshtml" />
-    <Content Include="Views\Shared\CarouselDisplay.cshtml" />
+    <Content Include="Views\Home\HeadingSection.cshtml" />
+    <Content Include="Views\Home\CottageSection.cshtml" />
+    <Content Include="Views\Home\CarouselDisplay.cshtml" />
+    <Content Include="Views\Home\MouseholeSection.cshtml" />
+    <Content Include="Views\Home\PlacesToVisitSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
