@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarolineCottageMobile", "CarolineCottageMobile\CarolineCottageMobile.csproj", "{23DD1A9D-11BC-4B4F-AD1F-3CC97419D2EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarolineCottage.Domain", "CarolineCottage.Domain\CarolineCottage.Domain.csproj", "{75D165CC-C227-4D20-A755-D3739A56F3DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarolineCottage.Repository", "CarolineCottage.Repository\CarolineCottage.Repository.csproj", "{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{23DD1A9D-11BC-4B4F-AD1F-3CC97419D2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23DD1A9D-11BC-4B4F-AD1F-3CC97419D2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23DD1A9D-11BC-4B4F-AD1F-3CC97419D2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D165CC-C227-4D20-A755-D3739A56F3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D165CC-C227-4D20-A755-D3739A56F3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D165CC-C227-4D20-A755-D3739A56F3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D165CC-C227-4D20-A755-D3739A56F3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
