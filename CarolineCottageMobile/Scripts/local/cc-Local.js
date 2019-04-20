@@ -11,12 +11,9 @@
         });
     });
 
-    $("#BooklingLink").click(function () {
-
-    });
-    //$('.navbar-nav>li>a').on('click', function () {
-    //    $('.navbar-collapse').collapse('hide');
-    //});
+    $("#BookingLink").click(function (e) {
+        $('#bookingModal').modal();
+    });    
 
     $('a[href^="#"]').on('click', function () {        
         $('.navbar-collapse').collapse('hide');

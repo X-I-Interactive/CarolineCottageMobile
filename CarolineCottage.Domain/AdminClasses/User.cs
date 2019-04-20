@@ -59,36 +59,37 @@ namespace CarolineCottage.Domain
         public static List<UserList> GetUserList(string connectionString)
         {
             List<UserList> userList = new List<UserList>();
-            AutoMapper.Mapper.CreateMap<Repository.CarolineCottageClasses.User, UserList>();
-            using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
-            {
-                userList = AutoMapper.Mapper.Map<List<Repository.CarolineCottageClasses.User>, List<UserList>>(dbContext.Users.OrderBy(x => x.Name).ToList());
-            }
+            //AutoMapper.Mapper.CreateMap<Repository.CarolineCottageClasses.User, UserList>();
+            //using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
+            //{
+            //    userList = AutoMapper.Mapper.Map<List<Repository.CarolineCottageClasses.User>, List<UserList>>(dbContext.Users.OrderBy(x => x.Name).ToList());
+            //}
             return userList;
         }
 
         public static User GetUserByID(int userID, string connectionString)
         {
-            AutoMapper.Mapper.CreateMap<Repository.CarolineCottageClasses.User, User>();
-            using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
-            {
-                Repository.CarolineCottageClasses.User user = dbContext.Users.FirstOrDefault(x => x.UserID == userID) ?? new Repository.CarolineCottageClasses.User();
-                return AutoMapper.Mapper.Map<User, User>(user);
-            }
+            //AutoMapper.Mapper.CreateMap<Repository.CarolineCottageClasses.User, User>();
+            //using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
+            //{
+            //    Repository.CarolineCottageClasses.User user = dbContext.Users.FirstOrDefault(x => x.UserID == userID) ?? new Repository.CarolineCottageClasses.User();
+            //    return AutoMapper.Mapper.Map<User, User>(user);
+            //}
+            return null;
         }
 
         public bool Save(string connectionString)
         {
-            AutoMapper.Mapper.CreateMap<User, Repository.CarolineCottageClasses.User>();
-            using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
-            {
-                DateSet = DateTime.Now;
-                Salt = PasswordUtilityFunctions.CreateSalt(6);
-                PasswordEnc = PasswordUtilityFunctions.CreatePasswordHashSHA1(Password, Salt);
-                dbContext.Entry(AutoMapper.Mapper.Map<User, User>(this)).State = this.UserID == 0 ? EntityState.Added : EntityState.Modified;
-                dbContext.SaveChanges();
+            //AutoMapper.Mapper.CreateMap<User, Repository.CarolineCottageClasses.User>();
+            //using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
+            //{
+            //    DateSet = DateTime.Now;
+            //    Salt = PasswordUtilityFunctions.CreateSalt(6);
+            //    PasswordEnc = PasswordUtilityFunctions.CreatePasswordHashSHA1(Password, Salt);
+            //    dbContext.Entry(AutoMapper.Mapper.Map<User, User>(this)).State = this.UserID == 0 ? EntityState.Added : EntityState.Modified;
+            //    dbContext.SaveChanges();
 
-            }
+            //}
             return true;
         }
     }
