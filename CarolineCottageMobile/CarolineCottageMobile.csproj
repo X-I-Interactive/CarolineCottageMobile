@@ -145,6 +145,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactModels.cs" />
+    <Compile Include="Models\HelperFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +231,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -273,10 +277,12 @@
     <Content Include="Views\Home\ManOnABeachSection.cshtml" />
     <Content Include="Views\Home\DownloadsSection.cshtml" />
     <Content Include="Views\Shared\PrivacyStatement.cshtml" />
+    <Content Include="Views\Shared\CalendarList.cshtml" />
+    <Content Include="Views\Shared\ViewBookingRows.cshtml" />
+    <Content Include="Views\Shared\ContactUsForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -293,6 +299,10 @@
     <ProjectReference Include="..\CarolineCottage.Domain\CarolineCottage.Domain.csproj">
       <Project>{75D165CC-C227-4D20-A755-D3739A56F3DB}</Project>
       <Name>CarolineCottage.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarolineCottage.Repository\CarolineCottage.Repository.csproj">
+      <Project>{E1489E00-A3C1-4626-9F2D-66A8BD3C90EC}</Project>
+      <Name>CarolineCottage.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

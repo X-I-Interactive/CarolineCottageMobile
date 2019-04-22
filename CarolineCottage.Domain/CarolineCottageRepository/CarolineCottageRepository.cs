@@ -1,4 +1,4 @@
-﻿ using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using CarolineCottage.Repository.CarolineCottageDatabase;
 using System;
@@ -29,16 +29,76 @@ namespace CarolineCottage.Domain.CarolineCottageRepository
     }
     public class CarolineCottageRepository
     {
-        private readonly CarolineCottageDbContext _dbContext;
+        private CarolineCottageDbContext _dbContext;
 
         public CarolineCottageRepository(CarolineCottageDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
+        public BookingReturn GetCurrentBookings(bool addNewRows, DateTime endDateForDisplay, bool debugSQLConnection)
+        {
+            DateTime nextWeek = DateTimeExtensions.NextDayOfWeek(DateTime.Now, Repository.CarolineCottageClasses.Booking.ChangeoverDay);
+
+            BookingReturn bookingViewReturn = new BookingReturn();
+
+            try
+            {
+                if (addNewRows)
+                {
+                    //  get the latest date in the database
+                    DateTime lastWeekStored = _dbContext.Bookings.OrderByDescending(x => x.WeekStartDate).FirstOrDefault()?.WeekStartDate ?? nextWeek;
+
+                    //  add in any extra to make up to at least a year's worth
+                    DateTime endDate = nextWeek.AddDays(78 * 7);
+                    for (DateTime weekDate = lastWeekStored.AddDays(7); (endDate - weekDate).TotalDays > 7; weekDate = weekDate.AddDays(7))
+                    {
+                        //dbContext.Bookings.Add(AutoMapper.Mapper.Map<Booking, Booking>(new Booking(weekDate)));
+                    }
+
+                    _dbContext.SaveChanges();
+
+                }
+                //  then get list
+                List<Booking> currentBookings = Mapper.Map<List<Booking>>(_dbContext.Bookings.Where(x => x.WeekStartDate >= nextWeek));
+
+                if (!addNewRows)
+                {
+                    currentBookings = currentBookings.Where(x => x.WeekStartDate < endDateForDisplay).ToList();
+                }
+
+                currentBookings.Last().IsLastRow = true;
+                bookingViewReturn.BookingList = currentBookings;
+                return bookingViewReturn;
+
+            }
+            catch (Exception e)
+            {
+                bookingViewReturn.ReturnError = e.Message;
+                if (!debugSQLConnection)
+                {
+                    bookingViewReturn.ReturnError = "List nor currently available";
+                }
+                return bookingViewReturn;
+            }
+
+
+        }
         public bool SaveBooking(Booking booking)
         {
             return true;
+        }
+    }
+
+    public static class DateTimeExtensions
+    {
+        public static DateTime NextDayOfWeek(this DateTime from, DayOfWeek dayOfWeek)
+        {
+            int start = (int)from.DayOfWeek;
+            int target = (int)dayOfWeek;
+            if (target < start)
+                target += 7;
+            return from.AddDays(target - start);
         }
     }
 }

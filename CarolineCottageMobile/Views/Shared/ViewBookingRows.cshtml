@@ -1,0 +1,43 @@
+﻿@model BookingReturn
+@using CarolineCottage.Domain
+@using CarolineCottage.Repository.CarolineCottageClasses
+@using CarolineCottageMobile.Models
+
+@{
+    List<BookingStatus> enquiryStatus = new List<BookingStatus>() { BookingStatus.Available, BookingStatus.BookedFrom, BookingStatus.BookedTo, BookingStatus.Reserved };
+
+    foreach (var booking in Model.BookingList)
+    {
+        String shortBreak = booking.AvailableForShortBreaks ? "Yes" : "No";
+        String comment = String.IsNullOrEmpty(booking.Comment) ? "-" : booking.Comment;
+        String baseID = "WeekID_" + booking.BookingID.ToString();
+        String status = booking.BookingStatus.GetEnumDescriptionOrName();
+        if (!string.IsNullOrEmpty(booking.Comment))
+        {
+            status += " " + booking.Comment;
+        }
+        <tr id="@baseID" data-local="@booking.WeekStartDate.ToShortDateString()">
+            <td>
+                @if (enquiryStatus.Contains(booking.BookingStatus))
+                {
+                    <a href="#" class="ViewLine">
+                        <span class="fa fa-info-circle" aria-hidden="true" title="Enquire about this week"></span>
+                    </a>
+                }
+                else
+                {
+                    <span class="fa fa-remove" aria-hidden="true" title="Not available"></span>
+                }
+                &nbsp;
+                @booking.WeekStartDate.ToString("d MMM yyyy")
+            </td>
+            <td class="BookingStatus">@status</td>
+            <td class="WeekPrice text-right">@String.Format("{0:£#,##0}", booking.WeekPrice)</td>
+            <td class="text-right">@String.Format("{0:£#,##0}", ((booking.WeekPrice / 3) / 10) * 10)</td>
+        </tr>
+    }
+}
+
+
+
+

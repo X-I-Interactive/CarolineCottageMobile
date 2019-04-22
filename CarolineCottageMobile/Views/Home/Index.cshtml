@@ -52,12 +52,12 @@
                     <a class="nav-link btn btn-outline-primary" id="BookingLink" href="#">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook">
+                    <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook" title="See our Facebook page">
                         <i class="fa fa-facebook"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" title="Contact us">
+                    <a class="nav-link" id="contactUsLink" href="#" title="Contact us">
                         <i class="fa fa-envelope-o"></i>
                     </a>
                 </li>
@@ -90,7 +90,7 @@
 
     <!-- Modal privacy -->
     <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="privacyModalTitle">Caroline Cottage privacy statement</h5>
@@ -111,7 +111,7 @@
     <!-- Modal booking-->
 
     <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="bookingModalTitle">Caroline Cottage booking</h5>
@@ -125,6 +125,22 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal contact us -->
+    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactUsModalTitle">Contact us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="contactFormBody"></div>
+                
             </div>
         </div>
     </div>

@@ -1,0 +1,37 @@
+﻿@model BookingReturn
+@using CarolineCottage.Domain
+
+<h3 class="display-4">Booking the cottage</h3>
+<h4>How to book</h4>
+<ul class="list-unstyled">
+    <li>Click on <span class="fa fa-info-circle" aria-hidden="true" title=""></span> below to contact us about that week</li>
+    <li>Out of season short lets are available by arrangement</li>
+    <li>Christmas and New Year dates are flexible. See <a href="http://www.mouseholelights.org.uk/" target="_blank"> www.mouseholelights.org.uk/</a> for more information about the Mousehole Lights.</li>
+</ul>
+<div>
+    <table class="table table-hover table-condensed " id="viewBookingTable">
+        <thead>
+            <tr>
+                <th>Week</th>
+                <th>Booked</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Deposit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.BookingList.Count() == 0)
+            {
+                <tr>
+                    <td colspan="4">
+                        Availability list error: @Model.ReturnError
+                    </td>
+                </tr>
+            }
+            else
+            {
+                Html.RenderPartial("ViewBookingRows");                
+            }
+        </tbody>
+    </table>
+</div>
