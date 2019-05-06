@@ -1,4 +1,6 @@
 ﻿@{
+    /**/
+
     ViewBag.Title = "Caroline Cottage";
 }
 @model Dictionary<CarouselType, CarouselDisplay>
@@ -68,12 +70,9 @@
 
     </nav>
     <!--/.Navbar-->
-
-
     <div class="jumbotron jumbotron-fluid bg-transparent text-dark">
-        <img class="img-fluid" src="~/Content/Images/header_2.jpg" />
+        <img class="img-fluid" src="~/Content/Images/header_4.jpg" />
     </div>
-
 
     @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
     @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
@@ -140,7 +139,7 @@
                     </button>
                 </div>
                 <div id="contactFormBody"></div>
-                
+
             </div>
         </div>
     </div>

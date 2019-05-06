@@ -189,8 +189,10 @@
     <Content Include="Content\CarouselPlacesToVisit\penwith_stives02.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\header_3.jpg" />
     <Content Include="Content\Images\header_1.jpg" />
     <Content Include="Content\Images\header_2.jpg" />
+    <Content Include="Content\Images\header_4.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -225,6 +227,7 @@
     <Content Include="Content\local\CC_booking_form.pdf" />
     <Content Include="Content\local\CC_Leaflet.pdf" />
     <Content Include="Content\local\CC_map3.pdf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

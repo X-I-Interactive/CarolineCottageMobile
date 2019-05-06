@@ -28,7 +28,12 @@
         });
         $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
             $("#contactFormBody").html(responseStatement);
-            $('#contactUsModal').modal();
+            var form = $("#ContactUsForm")
+                .removeData("validator") /* added by the raw jquery.validate plugin */
+                .removeData("unobtrusiveValidation");  /* added by the jquery unobtrusive plugin*/
+
+            $.validator.unobtrusive.parse(form);
+            $('#contactUsModal').modal({ "backdrop": "static" });
         });
     });
 
@@ -38,4 +43,11 @@
     
 
 });
+
+function ContactUsClose(response, ajaxResponse) {
+    if (response.replyText !== "OK") {
+        
+    }
+    $('#contactUsModal').modal('hide');
+}
 

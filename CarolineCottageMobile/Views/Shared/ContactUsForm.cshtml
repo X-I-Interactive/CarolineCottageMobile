@@ -1,20 +1,30 @@
-﻿@model ContactUsModel
+﻿@model ContactUsData
 @using CarolineCottageMobile.Models
 
-<form>
+@*@using (Html.BeginForm("ContactMessage", "Home", FormMethod.Post, new { id = "contactForm" }))*@
+@using (Ajax.BeginForm("ContactUsMessage", "Home", null, new AjaxOptions()
+{
+    HttpMethod = "POST",   
+    OnSuccess = "ContactUsClose"
+}
+    , new { id = "ContactUsForm" }
+    ))
+{
+
     <div class="modal-body" id="contactUsBody">
         <p>You can phone us on <em>01865 727423</em> or <em>07900 677588</em></p>
         <p>You can use this form to send us a message</p>
 
 
         <div class="form-group">
-            @Html.ValidationMessageFor(m => m.From)
             @Html.LabelFor(m => m.From)
             @Html.TextBoxFor(m => m.From, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.From)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Message)
             @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Message)
         </div>
 
     </div>
@@ -23,6 +33,6 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Send your message</button>
     </div>
-</form>
 
+}
 

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CarolineCottage.Domain;
 using CarolineCottage.Domain.CarolineCottageRepository;
 using CarolineCottage.Repository.CarolineCottageDatabase;
+using CarolineCottageMobile.Models;
 
 namespace CarolineCottageMobile.Controllers
 {
@@ -56,6 +57,12 @@ namespace CarolineCottageMobile.Controllers
         public ActionResult ContactUs()
         {
             return PartialView("ContactUsForm");
+        }
+
+        [HttpPost]
+        public ActionResult ContactUsMessage(ContactUsData contactUsData)
+        {
+            return  Json(new { replyText = "OK"});
         }
 
         private CarouselDisplay GetCarouselSettings(string location, CarouselType carouselType)
