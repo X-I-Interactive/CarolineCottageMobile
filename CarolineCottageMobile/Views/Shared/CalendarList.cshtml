@@ -9,29 +9,17 @@
     <li>Christmas and New Year dates are flexible. See <a href="http://www.mouseholelights.org.uk/" target="_blank"> www.mouseholelights.org.uk/</a> for more information about the Mousehole Lights.</li>
 </ul>
 <div>
-    <table class="table table-hover table-condensed " id="viewBookingTable">
-        <thead>
-            <tr>
-                <th>Week</th>
-                <th>Booked</th>
-                <th class="text-right">Price</th>
-                <th class="text-right">Deposit</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @if (Model.BookingList.Count() == 0)
-            {
-                <tr>
-                    <td colspan="4">
-                        Availability list error: @Model.ReturnError
-                    </td>
-                </tr>
-            }
-            else
-            {
-                Html.RenderPartial("ViewBookingRows");                
-            }
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-3"><strong>Week</strong></div>
+        <div class="col-2"><strong>Booked</strong></div>
+        <div class="col-2"><strong>Price</strong></div>
+    </div>
+    @if (Model.BookingList.Count() == 0)
+    {
+        <p>Availability list error: @Model.ReturnError</p>
+    }
+    else
+    {
+        Html.RenderPartial("ViewBookingRows");
+    }    
 </div>

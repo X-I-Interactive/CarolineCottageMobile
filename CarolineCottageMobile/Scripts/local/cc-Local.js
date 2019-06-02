@@ -11,7 +11,7 @@
         });
     });
 
-    $("#BookingLink").click(function (e) {        
+    $("#BookingLink").click(function (e) {
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/CalendarList"
         });
@@ -19,10 +19,10 @@
             $("#bookingBody").html(responseStatement);
             $('#bookingModal').modal();
         });
-    });    
+    });
 
     $("#contactUsLink").click(function () {
-        
+
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/ContactUs"
         });
@@ -31,22 +31,21 @@
             var form = $("#ContactUsForm")
                 .removeData("validator") /* added by the raw jquery.validate plugin */
                 .removeData("unobtrusiveValidation");  /* added by the jquery unobtrusive plugin*/
-
             $.validator.unobtrusive.parse(form);
             $('#contactUsModal').modal({ "backdrop": "static" });
         });
     });
 
-    $('a[href^="#"]').on('click', function () {        
+    $('a[href^="#"]').on('click', function () {
         $('.navbar-collapse').collapse('hide');
     });
-    
+
 
 });
 
 function ContactUsClose(response, ajaxResponse) {
     if (response.replyText !== "OK") {
-        
+        console.log("done");
     }
     $('#contactUsModal').modal('hide');
 }
