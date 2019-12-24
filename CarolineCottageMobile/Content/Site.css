@@ -43,3 +43,6 @@ section {
     margin-bottom: 2em;
     /*background:linear-gradient(#efefef, #fff)*/
 }
+.modal-img {
+    width: 100%;
+}

@@ -10,6 +10,7 @@ using CarolineCottage.Domain;
 using CarolineCottage.Domain.CarolineCottageRepository;
 using CarolineCottage.Repository.CarolineCottageDatabase;
 using CarolineCottageMobile.Models;
+using System.Globalization;
 
 namespace CarolineCottageMobile.Controllers
 {
@@ -41,15 +42,15 @@ namespace CarolineCottageMobile.Controllers
         }
 
         [HttpPost]
-        public ActionResult CalendarList() 
+        public ActionResult CalendarList()
         {
-            string endDateForDisplay = WebConfigurationManager.AppSettings["EndDateForDisplay"];
-            DateTime endDate = Convert.ToDateTime(endDateForDisplay);
+            string endDateForDisplay = WebConfigurationManager.AppSettings["EndDateForDisplay"];            
+            DateTime endDate = Convert.ToDateTime(endDateForDisplay, new CultureInfo("en-GB"));
             bool debugSQLConnection = Convert.ToBoolean(WebConfigurationManager.AppSettings["DebugSQLConnection"]);
-            // load booking view
+           //   load booking view
 
             BookingReturn bookings = _carolineCottageRepository.GetCurrentBookings(false, endDate, debugSQLConnection);
-
+            
             return PartialView("CalendarList", bookings);
         }
 
@@ -62,7 +63,7 @@ namespace CarolineCottageMobile.Controllers
         [HttpPost]
         public ActionResult ContactUsMessage(ContactUsData contactUsData)
         {
-            return  Json(new { replyText = "OK"});
+            return Json(new { replyText = "OK" });
         }
 
         private CarouselDisplay GetCarouselSettings(string location, CarouselType carouselType)

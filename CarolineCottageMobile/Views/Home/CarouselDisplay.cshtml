@@ -28,7 +28,7 @@
             foreach (var image in Model.ImageList)
             {
                 <div class="carousel-item @active">
-                    <img src="@Url.Content(path + "/" + image.ImageName)" class="d-block w-100">
+                    <img src="@Url.Content(path + "/" + image.ImageName)" class="d-block w-100 car-image">
                 </div>
                 {
                     active = "";

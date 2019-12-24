@@ -6,142 +6,156 @@
 @model Dictionary<CarouselType, CarouselDisplay>
 @using CarolineCottageMobile.Application.CarolineCottageDisplay
 
+
 <!--Navbar-->
-<div class="container">
-    <nav class="navbar bg-white sticky-top navbar-expand-lg navbar-light text-primary primary-color">
+    <div class="container">
+        <nav class="navbar bg-white sticky-top navbar-expand-lg navbar-light text-primary primary-color">
 
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Caroline Cottage</a>
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">Caroline Cottage</a>
 
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#carolineCottageNav"
-                aria-controls="carolineCottageNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#carolineCottageNav"
+                    aria-controls="carolineCottageNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="carolineCottageNav">
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="carolineCottageNav">
 
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#CottageSectionLink">
-                        Our cottage
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#CottageSectionLink">
+                            Our cottage
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#MouseholeSectionLink">Mousehole</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#MouseholeSectionLink">Mousehole</a>
+                    </li>
 
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">More</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#GuestCommentsSectionLink">Guest comments</a>
-                        <a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>
-                        <a class="dropdown-item" href="#DownloadsSectionLink">Downloads</a>
-                        <a class="dropdown-item" href="#" id="viewPrivacy">Privacy Statement</a>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">More</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#GuestCommentsSectionLink">Guest comments</a>
+                            @*<a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>*@
+                            <a class="dropdown-item" href="#DownloadsSectionLink">Downloads</a>
+                            <a class="dropdown-item" href="#" id="viewPrivacy">Privacy Statement</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" id="PriceLink" href="#">Price and availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" id="BookingLink" href="#">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook" title="See our Facebook page">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contactUsLink" href="#" title="Contact us">
+                            <i class="fa fa-envelope-o"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+        <div class="jumbotron jumbotron-fluid bg-transparent text-dark">
+            <img class="img-fluid" src="~/Content/Images/header_4.jpg" />
+        </div>
+
+        @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
+        @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
+        @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
+        @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
+        @{Html.RenderPartial("GuestCommentsSection");}
+        @*@{Html.RenderPartial("ManOnABeachSection");}*@
+        @{Html.RenderPartial("DownloadsSection");}
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Pugwash Interactive</p>
+        </footer>
+
+        <!-- Modal privacy -->
+        <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="privacyModalTitle">Caroline Cottage privacy statement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </li>
+                    <div class="modal-body" id="privacyBody">
 
-            </ul>
-            <!-- Links -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary" id="BookingLink" href="#">Booking</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook" title="See our Facebook page">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contactUsLink" href="#" title="Contact us">
-                        <i class="fa fa-envelope-o"></i>
-                    </a>
-                </li>
-            </ul>
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Collapsible content -->
 
-    </nav>
-    <!--/.Navbar-->
-    <div class="jumbotron jumbotron-fluid bg-transparent text-dark">
-        <img class="img-fluid" src="~/Content/Images/header_4.jpg" />
-    </div>
+        <!-- Modal booking-->
 
-    @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
-    @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
-    @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
-    @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
-    @{Html.RenderPartial("GuestCommentsSection");}
-    @{Html.RenderPartial("ManOnABeachSection");}
-    @{Html.RenderPartial("DownloadsSection");}
-
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Pugwash Interactive</p>
-    </footer>
-
-    <!-- Modal privacy -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="privacyModalTitle">Caroline Cottage privacy statement</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <div class="modal fade" id="bookingModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalTitle">Caroline Cottage booking</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="bookingBody">
+                        Hello
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body" id="privacyBody">
+            </div>
+        </div>
+
+        <!-- Modal contact us -->
+        <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactUsModalTitle">Contact us</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="contactFormBody"></div>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- Modal image
+    https://stackoverflow.com/questions/49536873/display-image-on-single-bootstrap-modal
+        -->
+        <div class="modal fade " id="imagemodal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <img class="modal-img" />
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Modal booking-->
-
-    <div class="modal fade" id="bookingModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalTitle">Caroline Cottage booking</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="bookingBody">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal contact us -->
-    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactUsModalTitle">Contact us</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="contactFormBody"></div>
-
-            </div>
-        </div>
-    </div>
-</div>
 

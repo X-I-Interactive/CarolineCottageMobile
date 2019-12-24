@@ -40,7 +40,11 @@
         $('.navbar-collapse').collapse('hide');
     });
 
-
+    $(".car-image").on("click", function () {
+        var src = $(this).attr("src");
+        $(".modal-img").prop("src", src);
+        $("#imagemodal").modal("show");
+    });
 });
 
 function ContactUsClose(response, ajaxResponse) {

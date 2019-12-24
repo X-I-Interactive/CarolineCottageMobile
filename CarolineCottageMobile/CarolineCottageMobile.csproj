@@ -227,6 +227,7 @@
     <Content Include="Content\local\CC_booking_form.pdf" />
     <Content Include="Content\local\CC_Leaflet.pdf" />
     <Content Include="Content\local\CC_map3.pdf" />
+    <None Include="Properties\PublishProfiles\CarolineCottageMobile20191222100715 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
