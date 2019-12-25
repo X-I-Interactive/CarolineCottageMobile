@@ -22,7 +22,6 @@
     });
 
     $("#contactUsLink").click(function () {
-
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/ContactUs"
         });
@@ -32,7 +31,7 @@
                 .removeData("validator") /* added by the raw jquery.validate plugin */
                 .removeData("unobtrusiveValidation");  /* added by the jquery unobtrusive plugin*/
             $.validator.unobtrusive.parse(form);
-            $('#contactUsModal').modal({ "backdrop": "static" });
+            $('#contactUsModal').modal();
         });
     });
 
@@ -45,6 +44,10 @@
         $(".modal-img").prop("src", src);
         $("#imagemodal").modal("show");
     });
+
+    $(document).on("click", ".viewLine", function () {        
+        DisplayEnquiryForm(this);
+    });
 });
 
 function ContactUsClose(response, ajaxResponse) {
@@ -54,3 +57,14 @@ function ContactUsClose(response, ajaxResponse) {
     $('#contactUsModal').modal('hide');
 }
 
+function DisplayEnquiryForm(that) {
+    $(".enquiryFormBody").remove();
+    var weekID = $(that).parents("div.row").prop("id");
+    var anchor = $(that).parents("div.row");
+    var jqxhr1 = $.ajax({
+        type: 'POST', url: "/Home/EnquiryForm", data: { weekID: weekID }
+    });
+    $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
+        $(anchor).after(responseStatement);
+    });
+}

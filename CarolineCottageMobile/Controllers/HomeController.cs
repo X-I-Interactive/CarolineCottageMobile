@@ -61,6 +61,13 @@ namespace CarolineCottageMobile.Controllers
         }
 
         [HttpPost]
+        public ActionResult EnquiryForm(int weekID)
+        {
+            Booking booking = _carolineCottageRepository.GetBookingByID(weekID);
+            return PartialView("EnquiryForm", booking);
+        }
+
+        [HttpPost]
         public ActionResult ContactUsMessage(ContactUsData contactUsData)
         {
             return Json(new { replyText = "OK" });

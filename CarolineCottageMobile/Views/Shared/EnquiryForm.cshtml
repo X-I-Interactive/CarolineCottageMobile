@@ -1,0 +1,23 @@
+﻿@model Booking
+@using CarolineCottage.Domain
+<div class="row">
+    <div class="col enquiryFormBody">
+        <p>You can phone us on <em>01865 727423</em> or <em>07900 677588</em></p>
+        <p>You can use this form to send us a message</p>
+        <div class="form-group">
+            @Html.Label("From")
+            @Html.TextBox("From",null, new { @class = "form-control" })
+        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(m => m.Message)
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>*@
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Close</button>
+            <button type="submit" class="btn btn-primary">Send your message</button>
+        </div>
+    </div>
+
+
+</div>

@@ -8,11 +8,11 @@
     <li>Out of season short lets are available by arrangement</li>
     <li>Christmas and New Year dates are flexible. See <a href="http://www.mouseholelights.org.uk/" target="_blank"> www.mouseholelights.org.uk/</a> for more information about the Mousehole Lights.</li>
 </ul>
-<div>
+<div id="calendarList">
     <div class="row">
-        <div class="col-3"><strong>Week</strong></div>
-        <div class="col-2"><strong>Booked</strong></div>
-        <div class="col-2"><strong>Price</strong></div>
+        <div class="col-6"><strong>Week</strong></div>
+        @*<div class="col"><strong>Booked</strong></div>*@
+        <div class="col text-right"><strong>Price</strong></div>
     </div>
     @if (Model.BookingList.Count() == 0)
     {

@@ -10,18 +10,18 @@
     {
         String shortBreak = booking.AvailableForShortBreaks ? "Yes" : "No";
         String comment = String.IsNullOrEmpty(booking.Comment) ? "-" : booking.Comment;
-        String baseID = "WeekID_" + booking.BookingID.ToString();
+        String baseID = booking.BookingID.ToString();
         String status = booking.BookingStatus.GetEnumDescriptionOrName();
         if (!string.IsNullOrEmpty(booking.Comment))
         {
             status += " " + booking.Comment;
         }
-        <div class="row" id="@baseID" data-local="@booking.WeekStartDate.ToShortDateString()">
-            <div class="col-3">
+        <div class="row" id="@baseID">
+            <div class="col-6">
                 @if (enquiryStatus.Contains(booking.BookingStatus))
                 {
-                    <a href="#" class="ViewLine">
-                        <span class="fa fa-info-circle" aria-hidden="true" title="Enquire about this week"></span>
+                    <a href="#" class="viewLine">
+                        <span class="fa fa-info-circle" aria-hidden="true" title="Click to enquire about this week"></span>
                     </a>
                 }
                 else
@@ -30,28 +30,9 @@
                 }
                 &nbsp;@booking.WeekStartDate.ToString("d MMM yy")
             </div>
-            <div class="col-2">@status</div>
-            <div class="col-2 text-right WeekPrice">@String.Format("{0:£#,##0}", booking.WeekPrice)</div>
+            @*<div class="col">@status</div>*@
+            <div class="col text-right WeekPrice">@String.Format("{0:£#,##0}", booking.WeekPrice)</div>
         </div>
-
-        @*<tr id="@baseID" data-local="@booking.WeekStartDate.ToShortDateString()">
-                <td>
-                    @if (enquiryStatus.Contains(booking.BookingStatus))
-                    {
-                        <a href="#" class="ViewLine">
-                            <span class="fa fa-info-circle" aria-hidden="true" title="Enquire about this week"></span>
-                        </a>
-                    }
-                    else
-                    {
-                        <span class="fa fa-remove" aria-hidden="true" title="Not available"></span>
-                    }
-                    &nbsp;
-                    @booking.WeekStartDate.ToString("d MMM yyyy")
-                </td>
-                <td class="BookingStatus">@status</td>
-                <td class="WeekPrice text-right">@String.Format("{0:£#,##0}", booking.WeekPrice)</td>
-            </tr>*@
     }
 }
 

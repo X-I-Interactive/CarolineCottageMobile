@@ -84,6 +84,14 @@ namespace CarolineCottage.Domain.CarolineCottageRepository
 
 
         }
+
+        public Booking GetBookingByID(int bookingID)
+        {
+            DateTime lastDate = _dbContext.Bookings.Max(x => x.WeekStartDate);
+            var bookingView = Mapper.Map<dB.Booking, Booking>(_dbContext.Bookings.FirstOrDefault(x => x.BookingID == bookingID)) ?? new Booking();
+            bookingView.IsLastRow = (lastDate - bookingView.WeekStartDate).Days == 0;
+            return bookingView;
+        }
         public bool SaveBooking(Booking booking)
         {
             return true;
