@@ -48,13 +48,24 @@
     $(document).on("click", ".viewLine", function () {        
         DisplayEnquiryForm(this);
     });
+
+    $(document).on("click", ".closeEnquiry", function () {
+        $(".enquiryFormBody").remove();
+    });
 });
 
 function ContactUsClose(response, ajaxResponse) {
     if (response.replyText !== "OK") {
-        console.log("done");
+        console.log("error");
     }
     $('#contactUsModal').modal('hide');
+}
+
+function EnquiryClose(response, ajaxResponse) {
+    if (response.replyText !== "OK") {
+        console.log("error");
+    }
+    $(".enquiryFormBody").replaceWith(response.enquiryResult);
 }
 
 function DisplayEnquiryForm(that) {

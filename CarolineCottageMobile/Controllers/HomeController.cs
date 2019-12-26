@@ -64,13 +64,35 @@ namespace CarolineCottageMobile.Controllers
         public ActionResult EnquiryForm(int weekID)
         {
             Booking booking = _carolineCottageRepository.GetBookingByID(weekID);
-            return PartialView("EnquiryForm", booking);
+            ContactUsData contactUsData = SetupEnquiryData(booking);
+            
+            return PartialView("EnquiryForm", contactUsData);
+        }
+
+        private ContactUsData SetupEnquiryData(Booking booking)
+        {
+            ContactUsData contactUsData = new ContactUsData();
+            contactUsData.BookingStatus = booking.BookingStatus;
+            contactUsData.BookingWeekID = booking.BookingID;
+            contactUsData.WeekDate = booking.WeekStartDate.ToShortDateString();
+
+            return contactUsData;
+        }
+
+        [HttpPost]
+        public ActionResult EnquiryMessage(ContactUsData contactUsData)
+        {
+            contactUsData.MessageType = MessageType.Enquiry;
+            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
+            return Json(new { replyText = "OK", enquiryResult });
         }
 
         [HttpPost]
         public ActionResult ContactUsMessage(ContactUsData contactUsData)
         {
-            return Json(new { replyText = "OK" });
+            contactUsData.MessageType = MessageType.Contact;
+            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
+            return Json(new { replyText = "OK", enquiryResult });
         }
 
         private CarouselDisplay GetCarouselSettings(string location, CarouselType carouselType)
