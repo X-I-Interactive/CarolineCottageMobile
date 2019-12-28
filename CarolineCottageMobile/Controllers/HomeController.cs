@@ -40,7 +40,12 @@ namespace CarolineCottageMobile.Controllers
         {
             return PartialView("PrivacyStatement");
         }
-
+        [HttpPost]
+        public ActionResult CottageOverview()
+        {
+            return PartialView("CottageOverview");
+        }
+        
         [HttpPost]
         public ActionResult CalendarList()
         {

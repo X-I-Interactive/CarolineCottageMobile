@@ -6,12 +6,23 @@
             type: 'POST', url: "/Home/PrivacyStatement"
         });
         $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
-            $("#privacyBody").html(responseStatement);
-            $('#privacyModal').modal();
+            $("#generalBody").html(responseStatement);
+            $('#generalModal').modal();
         });
     });
 
-    $("#BookingLink").click(function (e) {
+    $(".viewCottageOverview").click(function (e) {
+
+        var jqxhr1 = $.ajax({
+            type: 'POST', url: "/Home/CottageOverview"
+        });
+        $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
+            $("#generalBody").html(responseStatement);
+            $('#generalModal').modal();
+        });
+    });
+
+    $(".PriceLink").click(function (e) {
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/CalendarList"
         });
@@ -21,7 +32,7 @@
         });
     });
 
-    $("#contactUsLink").click(function () {
+    $(".contactUsLink").click(function () {
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/ContactUs"
         });
@@ -79,3 +90,16 @@ function DisplayEnquiryForm(that) {
         $(anchor).after(responseStatement);
     });
 }
+
+$(function () {
+    $(document).on("click", "a", function (e) {
+        if ($(this).attr("href") === "#") {
+            e.preventDefault();
+            return;
+        }
+        var hash = this.href.split('#')[1];
+        if (hash) {
+            history.replaceState(null, null, window.location.pathname + window.location.search + '#' + hash);
+        }
+    });
+});

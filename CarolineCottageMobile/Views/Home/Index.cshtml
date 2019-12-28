@@ -41,7 +41,7 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">More</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#" id="viewCottageOverview">Cottage overview</a>
+                            <a class="dropdown-item viewCottageOverview" href="#">Cottage overview</a>
                             <a class="dropdown-item" href="#GuestCommentsSectionLink">Guest comments</a>
                             @*<a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>*@
                             <a class="dropdown-item" href="#DownloadsSectionLink">Downloads</a>
@@ -53,10 +53,10 @@
                 <!-- Links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary" id="PriceLink" href="#">Price and availability</a>
+                        <a class="nav-link btn btn-outline-primary PriceLink" href="#">Price and availability</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary" id="BookingLink" href="#">Booking</a>
+                        <a class="nav-link btn btn-outline-primary" href="#HowToBookSection">Booking</a>
                     </li>
                     <li class="nav-item">
                         <a href="https://www.facebook.com/CarolineCottageMousehole/" target="_blank" class="nav-link facebook" title="See our Facebook page">
@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contactUsLink" href="#" title="Contact us">
+                        <a class="nav-link contactUsLink" href="#" title="Contact us">
                             <i class="fa fa-envelope-o"></i>
                         </a>
                     </li>
@@ -81,6 +81,7 @@
 
         @{Html.RenderPartial("HeadingSection", Model[CarouselType.Heading]);}
         @{Html.RenderPartial("CottageSection", Model[CarouselType.Cottage]);}
+        @{Html.RenderPartial("HowToBookSection");}
         @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
         @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
         @{Html.RenderPartial("GuestCommentsSection");}
@@ -92,17 +93,17 @@
             <p>&copy; @DateTime.Now.Year - Pugwash Interactive</p>
         </footer>
 
-        <!-- Modal privacy -->
-        <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalTitle" aria-hidden="true">
+        <!-- Modal privacy/cottage etc overview -->
+        <div class="modal fade" id="generalModal" tabindex="-1" role="dialog" aria-labelledby="generalModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="privacyModalTitle">Caroline Cottage</h5>
+                        <h5 class="modal-title" id="generalModalTitle">Caroline Cottage</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="privacyBody">
+                    <div class="modal-body" id="generalBody">
 
                     </div>
                     <div class="modal-footer">
