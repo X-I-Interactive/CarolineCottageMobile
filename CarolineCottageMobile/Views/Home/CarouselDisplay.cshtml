@@ -1,6 +1,10 @@
 ﻿@model CarouselDisplay
 @using CarolineCottageMobile.Application.CarolineCottageDisplay
-
+@*
+    See https://stackoverflow.com/questions/52421025/bootstrap-4-carousel-same-height-for-different-image-sizes-and-screen-dimensions
+        https://stackoverflow.com/questions/13391566/twitter-bootstrap-carousel-different-height-images-cause-bouncing-arrows
+        https://stackoverflow.com/questions/45750442/bootstrap-carousel-different-height-images-cause-bouncing
+*@
 @{
 
     string carouselID = "carouselID" + Model.CarouselType.ToString("g");
