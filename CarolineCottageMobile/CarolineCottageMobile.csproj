@@ -163,12 +163,11 @@
     <Content Include="Content\CarouselCottage\03IMG_1913.JPG" />
     <Content Include="Content\CarouselCottage\04IMG_1778.jpg" />
     <Content Include="Content\CarouselCottage\05IMG_1886.jpg" />
-    <Content Include="Content\CarouselMain\01harbour_cyac.jpg" />
+    <Content Include="Content\CarouselMain\01IMG_6415.JPG" />
     <Content Include="Content\CarouselMain\02IMG_6367.JPG" />
     <Content Include="Content\CarouselMain\03IMG_6400.JPG" />
     <Content Include="Content\CarouselMain\04IMG_1723.jpg" />
     <Content Include="Content\CarouselMain\05IMG_6260.JPG" />
-    <Content Include="Content\CarouselMain\06IMG_6415.JPG" />
     <Content Include="Content\CarouselMain\07img_034.jpg" />
     <Content Include="Content\CarouselMain\08IMG_1719.jpg" />
     <Content Include="Content\CarouselMousehole\mousehole_2forest.jpg" />
@@ -190,10 +189,9 @@
     <Content Include="Content\CarouselPlacesToVisit\penwith_stives02.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\Images\header_3.jpg" />
-    <Content Include="Content\Images\header_1.jpg" />
-    <Content Include="Content\Images\header_2.jpg" />
     <Content Include="Content\Images\header_4.jpg" />
+    <Content Include="Content\Images\header_5.JPG" />
+    <Content Include="Content\Images\IMG_6415.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />

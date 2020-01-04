@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
 
+    $("#page-home").click(function () {
+        //window.scrollTo(0, 0);
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+    });
+
     $("#viewPrivacy").click(function (e) {
 
         var jqxhr1 = $.ajax({
@@ -56,7 +61,7 @@
         $("#imagemodal").modal("show");
     });
 
-    $(document).on("click", ".viewLine", function () {        
+    $(document).on("click", ".viewLine", function () {
         DisplayEnquiryForm(this);
     });
 
@@ -87,6 +92,10 @@ function DisplayEnquiryForm(that) {
         type: 'POST', url: "/Home/EnquiryForm", data: { weekID: weekID }
     });
     $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
+        var form = $("#EnquiryForm")
+            .removeData("validator") /* added by the raw jquery.validate plugin */
+            .removeData("unobtrusiveValidation");  /* added by the jquery unobtrusive plugin*/
+        $.validator.unobtrusive.parse(form);
         $(anchor).after(responseStatement);
     });
 }
