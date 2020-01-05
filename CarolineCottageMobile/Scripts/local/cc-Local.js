@@ -27,6 +27,7 @@
         });
     });
 
+    //  this shows prices and availability modal
     $(".PriceLink").click(function (e) {
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/CalendarList"
@@ -68,6 +69,10 @@
     $(document).on("click", ".closeEnquiry", function () {
         $(".enquiryFormBody").remove();
     });
+
+    $("#imagemodal").click(function () {
+        $("#imagemodal").modal("hide");
+    });
 });
 
 function ContactUsClose(response, ajaxResponse) {
@@ -92,11 +97,11 @@ function DisplayEnquiryForm(that) {
         type: 'POST', url: "/Home/EnquiryForm", data: { weekID: weekID }
     });
     $.when(jqxhr1).done(function (responseStatement, textStatus, jqXHR) {
+        $(anchor).after(responseStatement);
         var form = $("#EnquiryForm")
             .removeData("validator") /* added by the raw jquery.validate plugin */
             .removeData("unobtrusiveValidation");  /* added by the jquery unobtrusive plugin*/
         $.validator.unobtrusive.parse(form);
-        $(anchor).after(responseStatement);
     });
 }
 
