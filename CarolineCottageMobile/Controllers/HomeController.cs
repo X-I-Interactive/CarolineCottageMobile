@@ -18,11 +18,14 @@ namespace CarolineCottageMobile.Controllers
     {
         private CarolineCottageRepository _carolineCottageRepository;
         private CarolineCottageDbContext _dbContext;
-
+        private string _cCM;
+        private string _emailAccount;
         public HomeController()
         {
             _dbContext = new CarolineCottageDbContext(ConfigurationManager.ConnectionStrings["CCConnectionString"].ConnectionString);
             _carolineCottageRepository = new CarolineCottageRepository(_dbContext);
+            _cCM = WebConfigurationManager.AppSettings["CCM"];
+            _emailAccount = WebConfigurationManager.AppSettings["emac"];
         }
         public ActionResult Index()
         {
@@ -58,42 +61,35 @@ namespace CarolineCottageMobile.Controllers
             
             return PartialView("CalendarList", bookings);
         }
-
-        [HttpPost]
+        
         public ActionResult ContactUs()
         {
             return PartialView("ContactUsForm");
         }
-
-        [HttpPost]
+                
         public ActionResult EnquiryForm(int weekID)
         {
             Booking booking = _carolineCottageRepository.GetBookingByID(weekID);
-            ContactUsData contactUsData = SetupEnquiryData(booking);
+            ContactUs contactUsData = SetupEnquiryData(booking);
             
             return PartialView("EnquiryForm", contactUsData);
         }
 
-        private ContactUsData SetupEnquiryData(Booking booking)
-        {
-            ContactUsData contactUsData = new ContactUsData();
-            contactUsData.BookingStatus = booking.BookingStatus;
-            contactUsData.BookingWeekID = booking.BookingID;
-            contactUsData.WeekDate = booking.WeekStartDate.ToShortDateString();
-
-            return contactUsData;
-        }
-
         [HttpPost]
-        public ActionResult EnquiryMessage(ContactUsData contactUsData)
+        public ActionResult EnquiryMessage(ContactUs contactUs)
         {
-            contactUsData.MessageType = MessageType.Enquiry;
-            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
+            contactUs.MessageType = MessageType.Enquiry;
+            contactUs.Subject = "Enquiry for week " + contactUs.WeekDate;
+            contactUs.Message = "Comment: " + contactUs.Comment;
+            string success = contactUs.SendMessage(_cCM, _emailAccount);
+            contactUs.SendSuccess = success == string.Empty;
+            contactUs.ErrorMessage = success;
+            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUs);
             return Json(new { replyText = "OK", enquiryResult });
         }
 
         [HttpPost]
-        public ActionResult ContactUsMessage(ContactUsData contactUsData)
+        public ActionResult ContactUsMessage(ContactUs contactUsData)
         {
             contactUsData.MessageType = MessageType.Contact;
             var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
@@ -109,5 +105,16 @@ namespace CarolineCottageMobile.Controllers
             carouselDisplay.GetImageDisplayList(path);
             return carouselDisplay;
         }
+        private ContactUs SetupEnquiryData(Booking booking)
+        {
+            ContactUs contactUsData = new ContactUs();
+            contactUsData.BookingStatus = booking.BookingStatus;
+            contactUsData.BookingWeekID = booking.BookingID;
+            contactUsData.WeekDate = booking.WeekStartDate.ToShortDateString();
+
+            return contactUsData;
+        }
+
+
     }
 }

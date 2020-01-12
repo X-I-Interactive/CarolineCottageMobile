@@ -1,8 +1,16 @@
-﻿@model ContactUsData
+﻿@model ContactUs
 @using CarolineCottageMobile.Models
 
 <div class="row">
     <div class="col">
-        <p><em>@Model.MessageType.ToString() sent</em></p>
+        @if (Model.SendSuccess)
+        {
+            <p><em>@Model.MessageType.ToString() sent</em></p>
+        }
+        else 
+        {
+            <p>Error sending: @Model.MessageType.ToString()</p>
+        }
+
     </div>
 </div>

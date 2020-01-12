@@ -38,7 +38,7 @@ namespace CarolineCottageMobile.Application.CarolineCottageDisplay
 
     public class Email
     {
-        public string Send(ContactUsData   contact)
+        public string Send(ContactUs   contact)
         {
             string returnMessage = "";
             MailMessage mail = new MailMessage(
