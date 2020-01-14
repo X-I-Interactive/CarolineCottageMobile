@@ -76,15 +76,15 @@ namespace CarolineCottageMobile.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnquiryMessage(ContactUs contactUs)
+        public ActionResult EnquiryMessage(ContactUs contactUsData)
         {
-            contactUs.MessageType = MessageType.Enquiry;
-            contactUs.Subject = "Enquiry for week " + contactUs.WeekDate;
-            contactUs.Message = "Comment: " + contactUs.Comment;
-            string success = contactUs.SendMessage(_cCM, _emailAccount);
-            contactUs.SendSuccess = success == string.Empty;
-            contactUs.ErrorMessage = success;
-            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUs);
+            contactUsData.MessageType = MessageType.Enquiry;
+            contactUsData.Subject = "Enquiry for week " + contactUsData.WeekDate;
+            contactUsData.Message = "Comment: " + contactUsData.Comment;
+            string success = contactUsData.SendMessage(_cCM, _emailAccount);
+            contactUsData.SendSuccess = success == string.Empty;
+            contactUsData.ErrorMessage = success;
+            var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
             return Json(new { replyText = "OK", enquiryResult });
         }
 
@@ -92,6 +92,10 @@ namespace CarolineCottageMobile.Controllers
         public ActionResult ContactUsMessage(ContactUs contactUsData)
         {
             contactUsData.MessageType = MessageType.Contact;
+            contactUsData.Subject = "Caroline Cottage enquiry";            
+            string success = contactUsData.SendMessage(_cCM, _emailAccount);
+            contactUsData.SendSuccess = success == string.Empty;
+            contactUsData.ErrorMessage = success;
             var enquiryResult = this.RenderPartialViewToString("ContactEnquiryResult", contactUsData);
             return Json(new { replyText = "OK", enquiryResult });
         }
