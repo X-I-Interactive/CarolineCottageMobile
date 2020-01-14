@@ -39,7 +39,15 @@ a.anchor {
     height: 10px;
     border-radius: 100%;
 }
+/* style="width:100%; height: 300px !important; */
+.carousel-image-holder img {
+    width: 100%;
+    height: 300px !important;    
+}
 section {
     margin-bottom: 2em;
     /*background:linear-gradient(#efefef, #fff)*/
+}
+.modal-img {
+    width: 100%;
 }

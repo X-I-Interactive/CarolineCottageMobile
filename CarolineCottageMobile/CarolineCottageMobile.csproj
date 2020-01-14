@@ -141,6 +141,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ControllerExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,20 +157,19 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\CarouselCottage\00IMG_6415.JPG" />
     <Content Include="Content\CarouselCottage\01IMG_1788.jpg" />
     <Content Include="Content\CarouselCottage\02IMG_1768.jpg" />
     <Content Include="Content\CarouselCottage\03IMG_1913.JPG" />
     <Content Include="Content\CarouselCottage\04IMG_1778.jpg" />
     <Content Include="Content\CarouselCottage\05IMG_1886.jpg" />
-    <Content Include="Content\CarouselMain\01harbour_cyac.jpg" />
-    <Content Include="Content\CarouselMain\02IMG_6367.JPG" />
-    <Content Include="Content\CarouselMain\03IMG_6400.JPG" />
-    <Content Include="Content\CarouselMain\04IMG_1723.jpg" />
-    <Content Include="Content\CarouselMain\05IMG_6260.JPG" />
-    <Content Include="Content\CarouselMain\06IMG_6415.JPG" />
+    <Content Include="Content\CarouselMain\01IMG_6415.JPG" />
+    <Content Include="Content\CarouselMain\02IMG_1719.jpg" />
+    <Content Include="Content\CarouselMain\03kitchen_111.JPG" />
+    <Content Include="Content\CarouselMain\04IMG_6367.JPG" />
+    <Content Include="Content\CarouselMain\06lounge_6994.JPG" />
     <Content Include="Content\CarouselMain\07img_034.jpg" />
-    <Content Include="Content\CarouselMain\08IMG_1719.jpg" />
+    <Content Include="Content\CarouselMain\08IMG_1723.jpg" />
+    <Content Include="Content\CarouselMousehole\harbour_wall.jpg" />
     <Content Include="Content\CarouselMousehole\mousehole_2forest.jpg" />
     <Content Include="Content\CarouselMousehole\mousehole_2forestout.jpg" />
     <Content Include="Content\CarouselMousehole\mousehole_above.jpg" />
@@ -189,10 +189,9 @@
     <Content Include="Content\CarouselPlacesToVisit\penwith_stives02.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\Images\header_3.jpg" />
-    <Content Include="Content\Images\header_1.jpg" />
-    <Content Include="Content\Images\header_2.jpg" />
     <Content Include="Content\Images\header_4.jpg" />
+    <Content Include="Content\Images\header_5.JPG" />
+    <Content Include="Content\Images\IMG_6415.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +226,7 @@
     <Content Include="Content\local\CC_booking_form.pdf" />
     <Content Include="Content\local\CC_Leaflet.pdf" />
     <Content Include="Content\local\CC_map3.pdf" />
+    <None Include="Properties\PublishProfiles\CarolineCottageMobile - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -283,6 +283,10 @@
     <Content Include="Views\Shared\CalendarList.cshtml" />
     <Content Include="Views\Shared\ViewBookingRows.cshtml" />
     <Content Include="Views\Shared\ContactUsForm.cshtml" />
+    <Content Include="Views\Shared\EnquiryForm.cshtml" />
+    <Content Include="Views\Shared\ContactEnquiryResult.cshtml" />
+    <Content Include="Views\Shared\CottageOverview.cshtml" />
+    <Content Include="Views\Home\HowToBookSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

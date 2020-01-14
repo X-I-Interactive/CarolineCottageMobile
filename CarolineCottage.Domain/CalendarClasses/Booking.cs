@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarolineCottage.Repository.CarolineCottageClasses;
+using dB = CarolineCottage.Repository.CarolineCottageClasses;
 using CarolineCottage.Repository.CarolineCottageDatabase;
 using AutoMapper;
 
@@ -29,7 +29,7 @@ namespace CarolineCottage.Domain
         public int BookingID { get; set; }
 
         [Display(Name = "Booking status")]
-        public BookingStatus BookingStatus { get; set; }
+        public dB.BookingStatus BookingStatus { get; set; }
         public string Comment { get; set; }
 
         [Display(Name = "Week's price")]
@@ -48,12 +48,12 @@ namespace CarolineCottage.Domain
 
         public Booking(DateTime weekStartDate)
         {
-            BookingStatus = BookingStatus.Available;
+            BookingStatus = dB.BookingStatus.Available;
             WeekStartDate = weekStartDate;
             IsLastRow = false;
             AvailableForShortBreaks = true;
             WeekPrice = 500;
-        }
+        }        
 
         /*
         public void Save(string connectionString)
@@ -73,17 +73,7 @@ namespace CarolineCottage.Domain
             }
         }
 
-        public static Booking GetBookingByID(int bookingID, string connectionString)
-        {
-            using (CarolineCottageDbContext dbContext = new CarolineCottageDbContext(connectionString))
-            {
-                DateTime lastDate = dbContext.Bookings.Max(x => x.WeekStartDate);
-                var bookingView = AutoMapper.Mapper.Map<Booking, Booking>(dbContext.Bookings.FirstOrDefault(x => x.BookingID == bookingID)) ?? new Booking();
-                bookingView.IsLastRow = (lastDate - bookingView.WeekStartDate).Days == 0;
-                return bookingView;
-            }
-        }
-
+        
         public static BookingReturn GetCurrentBookings(string connectionString, bool addNewRows, DateTime endDateForDisplay, bool debugSQLConnection)
         {
             DateTime nextWeek = DateTimeExtensions.NextDayOfWeek(DateTime.Now, Repository.CarolineCottageClasses.Booking.ChangeoverDay);
@@ -169,5 +159,5 @@ namespace CarolineCottage.Domain
         */
     }
 
-    
+
 }

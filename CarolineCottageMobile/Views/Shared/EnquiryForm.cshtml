@@ -1,0 +1,45 @@
+﻿@model ContactUs
+@using CarolineCottageMobile.Models
+
+<div class="row enquiryFormBody">
+    @using (Ajax.BeginForm("EnquiryMessage", "Home", null, new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        OnSuccess = "EnquiryClose"
+    }
+    , new { id = "EnquiryForm" }
+    ))
+    {
+        @Html.HiddenFor(m => m.BookingWeekID);
+        @Html.HiddenFor(m => m.WeekDate);
+        <hr />
+        <div class="col">
+            @if (Model.BookingStatus != CarolineCottage.Repository.CarolineCottageClasses.BookingStatus.Available)
+            {
+                <p>The week @Model.WeekDate is booked</p>
+            }
+            else
+            {
+                <p>To enquire about week @Model.WeekDate:</p>
+                <ul>
+                    <li>Enter your email address below with an optional comment</li>
+                    <li>Or you can phone us on <em>01865 727423</em> or <em>07900 677588</em></li>
+                </ul>                
+                <div class="form-group">
+                    @Html.LabelFor(m => m.From)
+                    @Html.TextBoxFor(m => m.From, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.From)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Comment)
+                    @Html.TextAreaFor(m => m.Comment, new { @class = "form-control" })                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary closeEnquiry">Close</button>
+                    <button type="submit" class="btn btn-primary">Send your enquiry</button>
+                </div>
+            }
+        </div>
+        <hr />
+    }
+</div>

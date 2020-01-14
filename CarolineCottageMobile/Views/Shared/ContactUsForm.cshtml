@@ -1,7 +1,6 @@
-﻿@model ContactUsData
+﻿@model ContactUs
 @using CarolineCottageMobile.Models
 
-@*@using (Html.BeginForm("ContactMessage", "Home", FormMethod.Post, new { id = "contactForm" }))*@
 @using (Ajax.BeginForm("ContactUsMessage", "Home", null, new AjaxOptions()
 {
     HttpMethod = "POST",   
