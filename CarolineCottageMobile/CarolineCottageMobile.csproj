@@ -189,9 +189,9 @@
     <Content Include="Content\CarouselPlacesToVisit\penwith_stives02.jpg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\header_1.jpg" />
     <Content Include="Content\Images\header_4.jpg" />
     <Content Include="Content\Images\header_5.JPG" />
-    <Content Include="Content\Images\IMG_6415.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
