@@ -5,7 +5,7 @@
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     });
 
-    $("#viewPrivacy").click(function (e) {
+    $(".viewPrivacy").click(function (e) {
 
         var jqxhr1 = $.ajax({
             type: 'POST', url: "/Home/PrivacyStatement"
