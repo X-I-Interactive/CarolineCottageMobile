@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
-using CarolineCottage.Domain.Infrastructure;
+//using CarolineCottage.Domain.Infrastructure;
 
 namespace CarolineCottageMobile
 {
@@ -19,7 +19,7 @@ namespace CarolineCottageMobile
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            AutoMapperDomainConfiguration.Configure("CarolineCottage.Domain");
+            //AutoMapperDomainConfiguration.Configure("CarolineCottage.Domain");
         }
 
         protected void Application_BeginRequest()

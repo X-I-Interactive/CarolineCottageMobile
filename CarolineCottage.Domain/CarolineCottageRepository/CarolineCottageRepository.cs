@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.EquivalencyExpression;
 using CarolineCottage.Repository.CarolineCottageDatabase;
 using System;
 using System.Collections.Generic;
@@ -12,21 +11,21 @@ using dB = CarolineCottage.Repository.CarolineCottageClasses;
 namespace CarolineCottage.Domain.CarolineCottageRepository
 {
 
-    public class CarolineCottageProfile : Profile
-    {
+    //public class CarolineCottageProfile : Profile
+    //{
 
-        public CarolineCottageProfile()
-        {
-            ShouldMapField = fieldInfo => true;
+    //    public CarolineCottageProfile()
+    //    {
+    //        ShouldMapField = fieldInfo => true;
 
-            CreateMap<Booking, dB.Booking>()
-                .ReverseMap();
+    //        CreateMap<Booking, dB.Booking>()
+    //            .ReverseMap();
 
-            CreateMap<User, dB.User>()
-                .ReverseMap();
-        }
+    //        CreateMap<User, dB.User>()
+    //            .ReverseMap();
+    //    }
 
-    }
+    //}
     public class CarolineCottageRepository
     {
         private CarolineCottageDbContext _dbContext;
@@ -41,7 +40,7 @@ namespace CarolineCottage.Domain.CarolineCottageRepository
             DateTime nextWeek = DateTimeExtensions.NextDayOfWeek(DateTime.Now, Repository.CarolineCottageClasses.Booking.ChangeoverDay);
 
             BookingReturn bookingViewReturn = new BookingReturn();
-
+            Mapper.CreateMap<dB.Booking, Booking>();
             try
             {
                 if (addNewRows)
@@ -59,7 +58,7 @@ namespace CarolineCottage.Domain.CarolineCottageRepository
                     _dbContext.SaveChanges();
 
                 }
-                //  then get list
+                //  then get list                
                 List<Booking> currentBookings = Mapper.Map<List<Booking>>(_dbContext.Bookings.Where(x => x.WeekStartDate >= nextWeek));
 
                 if (!addNewRows)
