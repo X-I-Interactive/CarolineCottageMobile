@@ -1,5 +1,7 @@
 ﻿@{
-    /**/
+    /*
+     https://github.com/ketanmistry/ihavecookies
+     */
 
     ViewBag.Title = "Caroline Cottage";
 }
@@ -44,7 +46,7 @@
                         <a class="dropdown-item viewCottageOverview" href="#">Cottage overview</a>
                         <a class="dropdown-item" href="#PlacesToVisitSectionLink">Places to visit</a>
                         <a class="dropdown-item" href="#GuestCommentsSectionLink">Guest comments</a>
-                        @*<a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>*@
+                        <a class="dropdown-item" href="#ManOnABeachSectionLink">ManOnABeach video</a>
                         <a class="dropdown-item" href="#DownloadsSectionLink">Downloads</a>
                         <a class="dropdown-item viewPrivacy" href="#">Privacy Statement</a>
                     </div>
@@ -86,7 +88,7 @@
     @{Html.RenderPartial("MouseholeSection", Model[CarouselType.Mousehole]);}
     @{Html.RenderPartial("PlacesToVisitSection", Model[CarouselType.PlacesToVisit]);}
     @{Html.RenderPartial("GuestCommentsSection");}
-    @*@{Html.RenderPartial("ManOnABeachSection");}*@
+    @{Html.RenderPartial("ManOnABeachSection");}
     @{Html.RenderPartial("DownloadsSection");}
 
     <hr />
