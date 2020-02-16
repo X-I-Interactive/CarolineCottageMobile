@@ -13,7 +13,9 @@ namespace CarolineCottageMobile
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*",
-                        "~/Scripts/jquery.unobtrusive*"));
+                        "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.ihavecookies*"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/local").Include(
                         "~/Scripts/local/cc-*"));

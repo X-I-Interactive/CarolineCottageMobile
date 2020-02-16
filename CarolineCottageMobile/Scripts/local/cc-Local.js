@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
 
+    $('body').ihavecookies();
+
     $("#page-home").click(function () {
         //window.scrollTo(0, 0);
         $('html, body').animate({ scrollTop: 0 }, 'fast');
