@@ -5,19 +5,17 @@
 
 @{
     List<BookingStatus> enquiryStatus = new List<BookingStatus>() { BookingStatus.Available, BookingStatus.BookedFrom, BookingStatus.BookedTo, BookingStatus.Reserved };
+    List<BookingStatus> partWeek = new List<BookingStatus>() { BookingStatus.BookedFrom, BookingStatus.BookedTo };
 
     foreach (var booking in Model.BookingList)
     {
         String shortBreak = booking.AvailableForShortBreaks ? "Yes" : "No";
-        String comment = String.IsNullOrEmpty(booking.Comment) ? "-" : booking.Comment;
+        String comment = (partWeek.Contains(booking.BookingStatus)) ? $"({booking.BookingStatus.GetEnumDescriptionOrName()} {booking.Comment})"  : ""; 
         String baseID = booking.BookingID.ToString();
-        String status = booking.BookingStatus.GetEnumDescriptionOrName();
-        if (!string.IsNullOrEmpty(booking.Comment))
-        {
-            status += " " + booking.Comment;
-        }
+        
+        
         <div class="row" id="@baseID">
-            <div class="col-6">
+            <div class="col-8">
                 @if (enquiryStatus.Contains(booking.BookingStatus))
                 {
                     <a href="#" class="viewLine">
@@ -28,7 +26,7 @@
                 {
                     <span class="fa fa-remove" aria-hidden="true" title="Not available"></span>
                 }
-                &nbsp;@booking.WeekStartDate.ToString("d MMM yy")
+                &nbsp;@($"{booking.WeekStartDate.ToString("d MMM yy")} {comment}")
             </div>
             @*<div class="col">@status</div>*@
             <div class="col text-right WeekPrice">@String.Format("{0:£#,##0}", booking.WeekPrice)</div>

@@ -27,9 +27,9 @@ namespace CarolineCottage.Repository.CarolineCottageClasses
         Reserved = 1,
         [Description("Booked")]
         Booked = 2,
-        [Description("Booked from")]
+        [Description("booked from")]
         BookedFrom = 3,
-        [Description("Booked to")]
+        [Description("booked to")]
         BookedTo = 4
     }
 }
