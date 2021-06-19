@@ -55,10 +55,12 @@ namespace CarolineCottageMobile.Controllers
             string endDateForDisplay = WebConfigurationManager.AppSettings["EndDateForDisplay"];            
             DateTime endDate = Convert.ToDateTime(endDateForDisplay, new CultureInfo("en-GB"));
             bool debugSQLConnection = Convert.ToBoolean(WebConfigurationManager.AppSettings["DebugSQLConnection"]);
-           //   load booking view
+            //   load booking view
 
-            BookingReturn bookings = _carolineCottageRepository.GetCurrentBookings(false, endDate, debugSQLConnection);
-            
+            //BookingReturn bookings = _carolineCottageRepository.GetCurrentBookings(false, endDate, debugSQLConnection);
+            BookingReturn bookings = new BookingReturn();
+
+
             return PartialView("CalendarList", bookings);
         }
         
